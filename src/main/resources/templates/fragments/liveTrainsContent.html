@@ -1,0 +1,28 @@
+<section th:fragment="liveTrainsContent" class="centered base" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="help">
+        <div class="hr mt2 mb2" th:if="${not #strings.isEmpty(trains)}">
+            <h3><span class="hide-mobile">Train with live Location information/></span></h3>
+        </div>
+        <div th:if="${not #lists.isEmpty(trains)}">
+            <h3>Train List</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>Train Name</th>
+                    <th>Live Station Name</th>
+                    <th>Arrival Time</th>
+                </tr>
+                <tr th:each="location : ${trains}">
+                    <td><a th:href="${'/train/bytrainName?trainName=' + location.trainName}"><span th:text="${location.trainName} ?: 'N/A'" /></a> </td>
+                    <td><a th:href="${'/train/bylocation?stationName=' + location.stationName}"><span th:text="${location.stationName} ?: 'N/A'" /></a> </td>
+                    <td th:text="${location.time}"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="help">
+            <div class="col-sm-3">
+                <a href="/">Home</a>
+            </div>
+        </div>
+    </div>
+
+</section>

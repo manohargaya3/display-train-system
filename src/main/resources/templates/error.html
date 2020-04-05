@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headerTag :: headerTag"></head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <main class="content" role="main">
+            <section class="centered base">
+                <div th:replace="fragments/appHeader :: appHeader"></div>
+                <h2 class="base-title">Something went wrong&hellip;</h2>
+                <div>
+                    <span th:utext="${errMsg}" th:remove="tag" />
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <a href="/">Home</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div th:replace="fragments/footer :: footer"></div>
+    </body>
+</html>

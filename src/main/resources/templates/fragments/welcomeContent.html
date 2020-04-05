@@ -1,0 +1,23 @@
+<section th:fragment="welcomeContent" class="centered base" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h2 class="item base-title">Search train by device location or current location</h2>
+    <div class="help">
+        <form th:action="@{../train/bylocation}" method="get">
+
+            <div id="map" style="width:200px; height: 200px; margin-left: auto; margin-right: auto"></div>
+
+            <label>Location: </label><input type="text" name="stationName" th:value="${stationName}" class="form-control" />
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+    </div>
+
+    <h2 class="item base-title">Search trains by source location and destination location</h2>
+    <div class="help">
+        <form th:action="@{../train/bylocations}" method="get">
+            <label>From Location: </label><input type="text" name="fromStationName" th:value="${fromStationName}" class="form-control" />
+            <label>To Location: </label><input type="text" name="toStationName" th:value="${toStationName}" class="form-control" />
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+    </div>
+
+    <a th:href="${'/train/live/location'}">Search all Trains with the live location</a>
+</section>

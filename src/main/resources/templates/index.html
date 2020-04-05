@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/headerTag :: headerTag"></head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div th:replace="fragments/appHeader :: appHeader"></div>
+        <main class="content" role="main">
+            <div th:replace="fragments/welcomeContent :: welcomeContent"></div>
+        </main>
+        <div th:replace="fragments/footer :: footer"></div>
+    </body>
+</html>

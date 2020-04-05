@@ -1,0 +1,31 @@
+<section th:fragment="trainContent" class="centered base" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="help">
+        <div class="hr mt2 mb2" th:if="${not #strings.isEmpty(stationName)}">
+            <h2><span class="hide-mobile">Trains running through location : <span th:text="${stationName} ?: 'N/A'" /></span></h2>
+        </div>
+        <div th:if="${not #lists.isEmpty(trains)}">
+            <h2>Train List</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Train Id</th>
+                    <th>Train Name</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Train Route</th>
+                </tr>
+                <tr th:each="train : ${trains}">
+                    <td th:text="${train.trainId}"></td>
+                    <td th:text="${train.trainName}"></td>
+                    <td><a th:href="${'/train/bylocation?stationName=' + train.fromStation}"><span th:text="${train.fromStation} ?: 'N/A'" /></a> </td>
+                    <td><a th:href="${'/train/bylocation?stationName=' + train.toStation}"><span th:text="${train.toStation} ?: 'N/A'" /></a> </td>
+                    <td><a th:href="${'/train/bytrainid?trainId=' + train.trainId}">live status</a> </td>
+                </tr>
+            </table>
+        </div>
+        <div class="help">
+            <div class="col-sm-3">
+                <a href="/">Home</a>
+            </div>
+        </div>
+    </div>
+</section>

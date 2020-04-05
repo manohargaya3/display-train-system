@@ -1,0 +1,57 @@
+<section th:fragment="showContent" class="centered base" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="help">
+        <h3>Train Information</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Train Id</th>
+                <th>Train Name</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Train Route</th>
+            </tr>
+            <tr>
+                <td th:text="${train.trainId}"></td>
+                <td><a th:href="${'/train/bytrainid?trainId=' + train.trainId}"><span th:text="${train.trainName} ?: 'N/A'" /></a> </td>
+                <td><a th:href="${'/train/bylocation?stationName=' + train.fromStation}"><span th:text="${train.fromStation} ?: 'N/A'" /></a> </td>
+                <td><a th:href="${'/train/bylocation?stationName=' + train.toStation}"><span th:text="${train.toStation} ?: 'N/A'" /></a> </td>
+                <td><a th:href="${'/train/bylocation?stationName=' + train.toStation}">live status</a> </td>
+            </tr>
+        </table>
+
+        <h3>Train Current Location Information</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Station Name</th>
+                <th>Train Time</th>
+            </tr>
+            <tr>
+                <td th:text="${trainCurrentLocation.stationName}"></td>
+                <td th:text="${trainCurrentLocation.time}"></td>
+
+            </tr>
+        </table>
+
+        <div class="hr mt2 mb2" th:if="${not #strings.isEmpty(train.trainName)}">
+            <h2><span class="hide-mobile">Trains running status by location : <span th:text="${train.trainName} ?: 'N/A'" /></span></h2>
+        </div>
+        <div th:if="${not #lists.isEmpty(trainRunningStatus)}">
+            <h2>Train Running Status</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Station Name</th>
+                    <th>Arrival Time</th>
+                </tr>
+                <tr th:each="location : ${trainRunningStatus}">
+                    <td th:text="${location.stationName}"></td> </td>
+                    <td th:text="${location.time}"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="help">
+            <div class="col-sm-3">
+                <a href="/">Home</a>
+            </div>
+        </div>
+    </div>
+
+</section>
