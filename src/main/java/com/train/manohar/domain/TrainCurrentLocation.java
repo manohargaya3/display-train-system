@@ -1,12 +1,12 @@
 package com.train.manohar.domain;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.SqlResultSetMapping;
 import java.sql.Time;
-
 @SqlResultSetMapping(
         name = "trainCurrentLocation", // If @Query does not specify name, the method name will be used by default.
         classes = {

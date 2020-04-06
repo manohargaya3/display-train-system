@@ -1,6 +1,7 @@
 package com.train.manohar.domain;
 
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;

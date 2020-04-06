@@ -3,9 +3,11 @@ package com.train.manohar.repositories;
 import com.train.manohar.domain.Train;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+@RepositoryRestResource
 public interface TrainRepository extends CrudRepository<Train, Long> {
     Train findByTrainId(int trainId);
     Train findByTrainName(String trainName);
