@@ -20,6 +20,7 @@ table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     alignment: center;
+    align-items: center;
 }
 th, td {
     padding: 5px;
@@ -27,12 +28,10 @@ th, td {
 
 .header {
     height: auto;
-    position: relative;
-    background-color: #eaeaea;
+    background-color: cyan;
 }
 
-.lockup-title {
-    position:absolute;
+.lockup-title {;
     top: 19px;
     left: 57px;
     font-size: 1.4375rem;
@@ -48,7 +47,7 @@ th, td {
     -ms-flex-preferred-size: 32px;
     flex-basis: 32px;
     height: 37px;
-    background-color: inherit;
+    background-color: cyan;
     color: inherit;
 }
 
@@ -221,6 +220,7 @@ input.at-highlight:focus, input.highlight-info:focus {
 .help {
     margin-top: 2.5rem;
     text-align: center;
+    background-color: cyan;
 }
 
 .help a, .help button {
@@ -231,6 +231,7 @@ input.at-highlight:focus, input.highlight-info:focus {
     align-items: center;
     line-height: 0.875rem;
     padding: 0 0.875rem;
+    color: chocolate;
 }
 
 .help a:active, .help a:hover, .help a:focus {
@@ -368,15 +369,14 @@ input.at-highlight:focus, input.highlight-info:focus {
 @media screen and (min-width: 30em) {
 
     html, body {
-        background-color: #eaeaea;
+        background-color: cyan;
         height: auto;
     }
 
     .centered {
         margin: auto;
-        max-width: 840px;
+        max-width: 940px;
         width: 100%;
-        position: inherit;
     }
 
     .lockup {
@@ -391,16 +391,17 @@ input.at-highlight:focus, input.highlight-info:focus {
     }
 
     .lockup-iu {
-        display: inline-block;
-        position: absolute;
         top: 4px;
-        font-size: 20px;
+        font-size: 33px;
+        font-style: inherit;
+        color: orangered;
     }
 
     .lockup-title {
         top: 22px;
         left: 58px;
         font-size: 1.625rem;
+        text-decoration-color: #008a28;
     }
 
     .trident {
@@ -420,6 +421,7 @@ input.at-highlight:focus, input.highlight-info:focus {
         margin-bottom: 4rem;
         padding-left: 0.25rem;
         padding-right: 0.25rem;
+        background-color: blue;
     }
 
     .base-title {

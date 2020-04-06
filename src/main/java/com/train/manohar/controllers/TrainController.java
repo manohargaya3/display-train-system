@@ -6,8 +6,10 @@ import com.train.manohar.services.StationService;
 import com.train.manohar.services.TrainService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.websocket.server.PathParam;
@@ -17,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 
-@Controller
+@RestController
 public class TrainController {
     private TrainService trainService;
     private StationService stationService;
@@ -125,6 +127,15 @@ public class TrainController {
         }
 
         return errMav;
+    }
+
+    @GetMapping(value = "/train/info")
+    public Set<Train> getTrainsJsonByLocation(@PathParam("locationName") String locationName){
+        Set<Train> trains = null;
+        if(StringUtils.isNoneBlank(locationName)) {
+            trains = stationService.getByStationName(locationName).getTrains();
+        }
+        return trains;
     }
 
 }

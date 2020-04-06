@@ -3,8 +3,17 @@
         <div class="hr mt2 mb2" th:if="${not #strings.isEmpty(stationName)}">
             <h2><span class="hide-mobile">Trains running through location : <span th:text="${stationName} ?: 'N/A'" /></span></h2>
         </div>
+        <h3>List of Trains based on Location details : </h3>
         <div th:if="${not #lists.isEmpty(trains)}">
-            <h2>Train List</h2>
+            <div class="hr mt2 mb2" th:if="${not #strings.isEmpty(stationName)}">
+                Station: <span th:text="${stationName} ?: ''" />
+            </div>
+            <div class="hr mt2 mb2" th:if="${not #strings.isEmpty(fromStationName)}">
+                From Station: <span th:text="${fromStationName} ?: ''" />
+            </div>
+            <div class="hr mt2 mb2" th:if="${not #strings.isEmpty(toStationName)}">
+                To Station: <span th:text="${toStationName} ?: ''" />
+            </div>
             <table class="table table-striped">
                 <tr>
                     <th>Train Id</th>
